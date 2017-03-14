@@ -2,8 +2,14 @@
     <h1>Category</h1>
     <div class="toolbar">
         <a href="<?php echo base_url() . 'dashboard/index' ?>">
-            <button type="button" class="btn btn-default">Back</button>
+            <button type="button" class="btn btn-default btn-back">Back</button>
         </a>
+        <div class="toolbar_search">
+            <input type="text" class="form-control toolbar_input" placeholder="Search..."/>
+            <button type="button" class="btn btn-default toolbar_search_btn">
+                <i class="fa fa-search"></i>
+            </button>
+        </div>
     </div>
     <div class="data_table_panel">
         <table border="1" class="table table-bordered data_table">

@@ -111,12 +111,39 @@
 }
 
 .toolbar{
+    display: table;
     padding: 10px;
     width: 100%;
     border:1px solid #e0e0e0;
     border-radius: 3px;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
+}
+
+.toolbar_search{
+    width: 250px;
+    float: right;
+    display: table-cell;
+}
+
+.toolbar_input{
+    width: 80%;
+    display: table-cell;
+    border-radius: 4px 0px 0px 4px;  
+
+}
+
+.toolbar_search_btn{
+    display: table-cell;
+    width: 20%;
+    float: right;
+    border-radius: 0px 4px 4px 0px;  
+    border-left: none;
+}
+
+.btn-back{
+    display: table-cell;
+    float: left;
 }
 
 .data_table_panel{

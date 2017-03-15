@@ -4,11 +4,16 @@
         <a href="<?php echo base_url() . 'dashboard/index' ?>">
             <button type="button" class="btn btn-default btn-back">Back</button>
         </a>
+        <a href="<?php echo base_url() . 'dashboard/index' ?>">
+            <button type="button" class="btn btn-default btn-back" style="margin-left: 20px;">Add New</button>
+        </a>
         <div class="toolbar_search">
-            <input type="text" class="form-control toolbar_input" placeholder="Search..."/>
-            <button type="button" class="btn btn-default toolbar_search_btn">
-                <i class="fa fa-search"></i>
-            </button>
+            <form method="post" action="<?php echo base_url() . 'category/search' ?>">
+                <input type="text" class="form-control toolbar_input" name="keyword" placeholder="Search..."/>
+                <button type="submit" class="btn btn-default toolbar_search_btn">
+                    <i class="fa fa-search"></i>
+                </button>
+            </form>
         </div>
     </div>
     <div class="data_table_panel">
@@ -23,19 +28,20 @@
             foreach ($category_list as $category) {
                 ?>
                 <tr>
-                    <td><?php echo $i++; ?></td>
+                    <td><?php echo $serial_num + $i++; ?></td>
                     <td><?php echo $category->name; ?></td>
                     <td><a href="#"><i class="fa fa-pencil-square-o" style="font-size: 18px;"></i></a></td>
                     <td><a href="#"><i class="fa fa-times" style="font-size: 18px;"></i></a></td>
                 </tr>
             <?php } ?>
         </table>
+        <?php $loop_count = ceil($total_record / $data_per_page); ?>
         <ul class="pagination">
-            <li><a href="#">1</a></li>
-            <li class="active"><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
+            <li><a href="<?php echo base_url() . 'category/' . 1 ?>" title="First" ><<</a></li>
+            <?php for ($i = 1; $i <= $loop_count; $i++) { ?>
+                <li><a href="<?php echo base_url() . 'category/' . $i ?>"><?php echo $i; ?></a></li>
+            <?php } ?>
+            <li><a href="<?php echo base_url() . 'category/' . $loop_count ?>" title="Last" >>></a></li>
         </ul>
     </div>
 </div>

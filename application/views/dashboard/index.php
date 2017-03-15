@@ -1,6 +1,6 @@
 <div class="icon_wrap">
     <div class="panel panel-default icons">
-        <a href="<?php echo base_url().'category'?>">
+        <a href="<?php echo base_url() . 'category/1' ?>">
             <i class="fa fa-cube" style="font-size:100px;"></i>
             <span class="icon_text"> Category</span>
         </a>

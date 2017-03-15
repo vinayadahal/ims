@@ -2,9 +2,12 @@
 
 class fetch extends CI_Model {
 
-    function getAllFromTable($table) {
+    function getAllFromTable($table, $limit, $start) {
         $this->db->select('*');
         $this->db->from($table);
+        if (isset($limit)) {
+            $this->db->limit($limit, $start);
+        }
         $query = $this->db->get();
         return $query->result();
     }
@@ -35,6 +38,27 @@ class fetch extends CI_Model {
         } else {
             return false;
         }
+    }
+
+    function search($keyword, $cols, $tablename) {
+//        $column_list = '';
+//        $i = 1;
+//        foreach ($cols as $col) {
+//            if (count($cols) == $i) {
+//                $column_list .= '"' . $col . '"';
+//            } else {
+//                $column_list .= '"' . $col . '",';
+//            }
+//            $i++;
+//        }
+//        echo $column_list;
+        $this->db->select('*');
+        $this->db->from($tablename);
+        foreach ($cols as $col) {
+            $this->db->or_like($col, $keyword);
+        }
+        $query = $this->db->get();
+        return $query->result();
     }
 
 }

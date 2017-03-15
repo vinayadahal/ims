@@ -10,4 +10,7 @@ $route['login'] = 'login/index';
 $route['checkLogin'] = 'login/checkLogin';
 $route['dashboard'] = 'dashboard/index';
 $route['category'] = 'category/index';
+$route['category/(:num)'] = 'category/index/$1';
+$route['category/search'] = 'category/search';
 $route['logout'] = 'login/logout';
+

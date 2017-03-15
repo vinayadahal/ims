@@ -13,10 +13,23 @@ class category extends CI_Controller {
         $this->session_check();
     }
 
-    public function index() {
-        $query = $this->fetch->getAllFromTable('category');
-        $data['category_list'] = $query;
+    public function index($page) {
+        $data['data_per_page'] = 5;
+        $start_point = ($page - 1) * $data['data_per_page'];
+        $data['total_record'] = count($this->fetch->getAllFromTable('category', '', ''));
+        $end_limit = $data['data_per_page'];
+        $records_from_db = $this->fetch->getAllFromTable('category', $end_limit, $start_point);
+        $data['category_list'] = $records_from_db;
+        $data['serial_num'] = $start_point;
         $this->load_view($data);
+    }
+
+    public function search() {
+        $keyword = $this->input->post('keyword');
+        $col = array('name');
+        $tablename = 'category';
+        $search_result = $this->fetch->search($keyword, $col, $tablename);
+        print_r($search_result);
     }
 
     public function session_check() {

@@ -130,7 +130,8 @@
     width: 80%;
     display: table-cell;
     border-radius: 4px 0px 0px 4px;  
-
+    border-right: none;
+    float: left;
 }
 
 .toolbar_search_btn{
@@ -138,7 +139,6 @@
     width: 20%;
     float: right;
     border-radius: 0px 4px 4px 0px;  
-    border-left: none;
 }
 
 .btn-back{

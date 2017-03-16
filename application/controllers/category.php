@@ -21,15 +21,32 @@ class category extends CI_Controller {
         $records_from_db = $this->fetch->getAllFromTable('category', $end_limit, $start_point);
         $data['category_list'] = $records_from_db;
         $data['serial_num'] = $start_point;
-        $this->load_view($data);
+        $this->load_view($data, 'index');
     }
 
     public function search() {
         $keyword = $this->input->post('keyword');
         $col = array('name');
         $tablename = 'category';
-        $search_result = $this->fetch->search($keyword, $col, $tablename);
-        print_r($search_result);
+        $data['category_list'] = $this->fetch->search($keyword, $col, $tablename);
+        $this->load_view($data, 'search');
+    }
+
+    public function create() {
+        $this->load_view('', 'create');
+    }
+
+    public function add() {
+        $category = $this->input->post('category');
+        $cols_data = array('name' => $category);
+        $table_name = 'category';
+        $this->load->model('insert');
+        if ($this->insert->insertIntoTable($cols_data, $table_name)) {
+            redirect('category/1', 'refresh');
+        } else {
+            //show unable to insert error with flash data.
+            $this->create();
+        }
     }
 
     public function session_check() {
@@ -38,10 +55,10 @@ class category extends CI_Controller {
         }
     }
 
-    public function load_view($data) {
+    public function load_view($data, $page_name) {
         $data['title'] = ucfirst('category');
         $this->load->view('template/header', $data);
-        $this->load->view('category/index', $data);
+        $this->load->view('category/' . $page_name, $data);
         $this->load->view('template/footer');
     }
 

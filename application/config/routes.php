@@ -12,5 +12,6 @@ $route['dashboard'] = 'dashboard/index';
 $route['category'] = 'category/index';
 $route['category/(:num)'] = 'category/index/$1';
 $route['category/search'] = 'category/search';
+$route['category/create'] = 'category/create';
 $route['logout'] = 'login/logout';
 

@@ -30,7 +30,7 @@
                 <tr>
                     <td><?php echo $serial_num + $i++; ?></td>
                     <td><?php echo $category->name; ?></td>
-                    <td><a href="#"><i class="fa fa-pencil-square-o" style="font-size: 18px;"></i></a></td>
+                    <td><a href="<?php echo base_url() . "category/edit/" . $category->id ?>"><i class="fa fa-pencil-square-o" style="font-size: 18px;"></i></a></td>
                     <td><a href="#"><i class="fa fa-times" style="font-size: 18px;"></i></a></td>
                 </tr>
             <?php } ?>

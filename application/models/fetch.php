@@ -61,4 +61,17 @@ class fetch extends CI_Model {
         return $query->result();
     }
 
+    function getSingleRecord($table, $id) {
+        $this->db->select('*');
+        $this->db->from($table);
+        $this->db->where('id', $id);
+        $this->db->limit(1);
+        $query = $this->db->get();
+        if ($query->num_rows() == 1) {
+            return $query->result();
+        } else {
+            return false;
+        }
+    }
+
 }

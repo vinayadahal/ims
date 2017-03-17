@@ -49,6 +49,28 @@ class category extends CI_Controller {
         }
     }
 
+    public function edit($record_id) {
+        $query = $this->fetch->getSingleRecord('category', $record_id);
+        foreach ($query as $record) {
+            $data['category_name'] = $record->name;
+        }
+        $data['rec_id'] = $record_id;
+        $this->load_view($data, 'edit');
+    }
+
+    public function update() {
+        $id = $this->input->post('id');
+        $category_name = $this->input->post('category');
+        $this->load->model('update');
+        $cols = array('name' => $category_name);
+        if ($this->update->updateTableRow($cols, 'category', 'id', $id)) {
+            redirect('category/1', 'refresh');
+        } else {
+            //show unable to insert error with flash data.
+            $this->create();
+        }
+    }
+
     public function session_check() {
         if (!isset($this->session->id)) { // id after login
             redirect('login', 'refresh');

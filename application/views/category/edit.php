@@ -6,11 +6,12 @@
         </a>
     </div>
     <div class="data_table_panel">
-        <form method="post" action="<?php echo base_url() . 'category/add' ?>">
+        <form method="post" action="<?php echo base_url() . 'category/update' ?>">
+            <input type="hidden" value="<?php echo $rec_id ?>" name="id"/>
             <table border="1" class="table table-bordered data_table">
                 <tr>
                     <td style="vertical-align:middle">Category Name: </td>
-                    <td><input type="text" name="category" class="form-control" /></td>
+                    <td><input type="text" name="category" class="form-control" value="<?php echo $category_name; ?>" /></td>
                 </tr>
                 <tr>
                     <td colspan="2"><input type="submit" value="Save" class="btn btn-default btn-back"></td>

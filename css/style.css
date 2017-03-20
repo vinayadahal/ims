@@ -53,6 +53,43 @@
 
 /*Login page style*/
 
+/*popupbox design*/
+
+.popupBack{
+    background-color: rgba(0,0,0,0.5);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+
+.popupConfirmBox{
+    position: fixed;
+    top:50%;
+    left:50%;
+    margin-left:-150px;
+    margin-top:-50px;
+    width:300px;
+    height:100px;
+    background-color:#ccc;
+}
+
+.popupCofirmBoxHeader{
+    width: 100%;
+    padding: 5px;
+    background-color: #aaa
+}
+
+.popupCloseBtn{
+    padding: 3px 5px;
+    background-color: #e0e0e0;
+    border-radius: 2px;
+}
+
+/*popupbox design*/
+
 
 /*Dashboard Design*/
 

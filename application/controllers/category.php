@@ -71,6 +71,16 @@ class category extends CI_Controller {
         }
     }
 
+    public function delete($id) {
+        $this->load->model('delete');
+        if ($this->delete->deleteRecord($id, 'category')) {
+            redirect('category/1', 'refresh');
+        } else {
+            //show unable to insert error with flash data.
+            $this->create();
+        }
+    }
+
     public function session_check() {
         if (!isset($this->session->id)) { // id after login
             redirect('login', 'refresh');

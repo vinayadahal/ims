@@ -7,6 +7,7 @@
         <link href="<?php echo base_url(); ?>css/style.css" type="text/css" rel="stylesheet"/>
         <script src="<?php echo base_url(); ?>js/jquery.min.js" type="text/javascript"></script>
         <script src="<?php echo base_url(); ?>js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="<?php echo base_url(); ?>js/script.js" type="text/javascript"></script>
     </head>
     <body>
         <?php if ($title != 'Login') { ?>
@@ -41,6 +42,21 @@
                     </div>
                 </div>
             </nav>
-            <?php
-        } 
-       
+        <?php } ?>
+        <div class="popupBack" id="popupBack">
+
+            <div class="popupConfirmBox" id="popupConfirmBox">
+                <div class="popupCofirmBoxHeader">
+                    Confirm Action
+                    <a href="javascript:void(0);" style="float:right;"><i class="fa fa-times popupCloseBtn"></i></a>
+                </div>
+                
+                <div style="background-color: #777;padding: 10px;">
+                    Are you sure you want to do this?
+                    <div style="">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+

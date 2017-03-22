@@ -1,13 +1,14 @@
 $(document).ready(function () {
     $("#popupBack").hide();
     $("#popupConfirmBox").hide();
-    alert($("#url").attr('href'));
+
 });
 
-function showConfirmBox(message) {
+function showConfirmBox(message, url) {
     $("#popupBack").fadeIn();
     $("#popupConfirmBox").fadeIn(300);
     $("#messageArea").html(message);
+    $("#url").attr("href", url);
 }
 
 function closeConfirmBox() {

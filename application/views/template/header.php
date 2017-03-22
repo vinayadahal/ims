@@ -44,19 +44,21 @@
             </nav>
         <?php } ?>
         <div class="popupBack" id="popupBack">
-
             <div class="popupConfirmBox" id="popupConfirmBox">
                 <div class="popupCofirmBoxHeader">
                     Confirm Action
-                    <a href="javascript:void(0);" style="float:right;"><i class="fa fa-times popupCloseBtn"></i></a>
+                    <a href="javascript:void(0);"  onclick="closeConfirmBox();" style="float:right;color: #222"><i class="fa fa-times popupCloseBtn"></i></a>
                 </div>
-                
-                <div style="background-color: #777;padding: 10px;">
+                <div id="messageArea" class="confirmMsg">
                     Are you sure you want to do this?
-                    <div style="">
-                        
-                    </div>
+                </div>
+                <div class="confirmBtnArea">
+                    <a href="bla" id="url">
+                        <button type="button" class="btn btn-default btn-back">Yes</button>
+                    </a>
+                    <a href="javascript:void(0);" onclick="closeConfirmBox();">
+                        <button type="button" class="btn btn-default btn-back" style="margin-left: 10px;">No</button>
+                    </a>
                 </div>
             </div>
         </div>
-

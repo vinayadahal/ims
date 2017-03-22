@@ -1,8 +1,16 @@
 $(document).ready(function () {
-//    $("#popupBack").hide();
+    $("#popupBack").hide();
+    $("#popupConfirmBox").hide();
+    alert($("#url").attr('href'));
 });
 
 function showConfirmBox(message) {
-    $("#popupBack").fadeIn(300);
-//    $("#popupConfirm").html(message);
+    $("#popupBack").fadeIn();
+    $("#popupConfirmBox").fadeIn(300);
+    $("#messageArea").html(message);
+}
+
+function closeConfirmBox() {
+    $("#popupBack").fadeOut(300);
+    $("#popupConfirmBox").fadeOut();
 }

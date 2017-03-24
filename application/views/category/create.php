@@ -10,7 +10,7 @@
             <table border="1" class="table table-bordered data_table">
                 <tr>
                     <td style="vertical-align:middle">Category Name: </td>
-                    <td><input type="text" name="category" class="form-control" /></td>
+                    <td><input type="text" name="category" class="form-control form_input" /></td>
                 </tr>
                 <tr>
                     <td colspan="2"><input type="submit" value="Save" class="btn btn-default btn-back"></td>

@@ -5,27 +5,35 @@
     font-size: 12px;
 }
 
+body{
+    background-color: #CCFFBB;
+}
+
 /*Login page style*/
 
 .login_box{
-    width: 300px;
-    height: 200px;
+    width: 350px;
+    height: 210px;
     position: fixed;
     top: 50%;
     left:50%;
-    margin-left: -150px;
-    margin-top: -100px;
-    border: 1px solid #e0e0e0;
+    margin-left: -175px;
+    margin-top: -105px;
+    background-color: #fff;
+    border: 1px solid #3A5F0B;
     border-radius: 2px;
     -moz-border-radius: 2px;
     -webkit-border-radius: 2px;
+    /*color: #fff;*/
 }
 
 .login_box_header{
     width: 100%;
     padding: 10px;
     margin: 0px;
-    border-bottom: 1px solid #e0e0e0;
+    background-color: #005A04;
+    border-bottom: 1px solid #3A5F0B;
+    color: #fff;
 }
 
 .login_box_form{
@@ -38,20 +46,63 @@
 }
 
 .login_text_box{
-    width: 100%;
-    padding: 3px;
-
+    font-size: 12px;
+    border: 1px solid #3A5F0B;
 }
 
 .login_box_btn{
-    border: 1px solid #e0e0e0;
-    padding: 4px 6px;
-    border-radius: 2px;
-    -moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
+    font-size: 12px;
+    background-color: #005A04;
+    border: 1px solid #005A04;
+    color: #fff;
+}
+
+.login_box_btn:hover{
+    background-color: #3A5F0B;
+    border: 1px solid #3A5F0B;
+    color:#fff;
 }
 
 /*Login page style*/
+
+
+/*Nav bar design*/
+.navbar-override{
+    background-color: #005A04;
+    border-radius: 0px;
+    border-bottom: 1px solid #3A5F0B;
+}
+
+.navbar-default .navbar-brand{
+    color: #fff;
+}
+
+#menu_item li a{
+    color: #fff;
+}
+
+#menu_item li a:hover{
+    color: #ccc;
+}
+
+#dropdown_menu li a {
+    color:#fff;
+}
+
+#dropdown_menu li a:focus {
+    color:#fff;
+    background:none;
+}
+
+#dropdown_menu_item{
+    background-color: #005A04;
+}
+
+#dropdown_menu_item li a:hover{
+    background-color: #3A5F0B;
+}
+/*Nav bar design*/
+
 
 /*popupbox design*/
 
@@ -73,20 +124,27 @@
     margin-top:-55px;
     width:300px;
     height:110px;
-    background-color:#ccc;
+    background-color: #fff;
 }
 
 .popupCofirmBoxHeader{
     width: 100%;
     padding: 8px;
-    background-color: #aaa;
+    background-color: #005A04;;
     font-weight: bold;
+    color: #fff;
 }
 
 .popupCloseBtn{
     padding: 3px 5px;
-    background-color: #e0e0e0;
+    background-color: #cc0000;
+    color: #ccc;
     border-radius: 2px;
+}
+
+.popupCloseBtn:hover{
+    background-color: #ff0000;
+    color: #fff;
 }
 
 .confirmMsg{
@@ -121,6 +179,7 @@
 }
 
 .icons {
+    border:1px solid #3A5F0B;
     width: 150px;
     text-align: center;
     float: left;
@@ -161,10 +220,12 @@
     display: table;
     padding: 10px;
     width: 100%;
-    border:1px solid #e0e0e0;
+    border:1px solid #3A5F0B;
     border-radius: 3px;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
+    background-color: #003a00;
+
 }
 
 .toolbar_search{
@@ -177,6 +238,7 @@
     width: 80%;
     display: table-cell;
     border-radius: 4px 0px 0px 4px;  
+    border:1px solid #3A5F0B;
     border-right: none;
     float: left;
 }
@@ -185,21 +247,40 @@
     display: table-cell;
     width: 20%;
     float: right;
-    border-radius: 0px 4px 4px 0px;  
+    border-radius: 0px 4px 4px 0px;
+    background-color: #005A04;
+    border: 1px solid #005A04;
+    color: #fff;
 }
+.toolbar_search_btn:hover{
+    background-color: #3A5F0B;
+    border: 1px solid #3A5F0B;
+    color:#fff;
+}
+
 
 .btn-back{
     display: table-cell;
     float: left;
-    font-size: 12px;
     width: 63px;
+    font-size: 12px;
+    background-color: #005A04;
+    border: 1px solid #005A04;
+    color: #fff;
+}
+
+.btn-back:hover{
+    background-color: #3A5F0B;
+    border: 1px solid #3A5F0B;
+    color:#fff;
 }
 
 .data_table_panel{
     margin-top: 10px;
     padding: 10px;
     width: 100%;
-    border:1px solid #e0e0e0;
+    border:1px solid #3A5F0B;
+    background-color: #003a00;
     border-radius: 3px;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
@@ -207,6 +288,24 @@
 
 .data_table{
     margin: 0px;
+}
+
+.table-bordered > tbody > tr > td,
+.table-bordered > tbody > tr > th,
+.table-bordered > tfoot > tr > td,
+.table-bordered > tfoot > tr > th,
+.table-bordered > thead > tr > td,
+.table-bordered > thead > tr > th {
+    border: 1px solid #3A5F0B;
+}
+
+.data_table th{
+    background-color: #005A04;
+    color: #fff;
+}
+
+.data_table td{
+    background-color: #fff;
 }
 
 .data_table td a{
@@ -222,22 +321,34 @@
 }
 
 .pagination li a{
-    color: #222;
+    background-color: #005A04;
+    border: 1px solid #005A04;
+    color: #fff;
 }
 
 .pagination li a:hover{
-    color: #555;
+    background-color: #3A5F0B;
+    border: 1px solid #3A5F0B;
+    color:#fff;
 }
 
 /*data table view*/
+
+/*mis*/
+.form_input{
+    border:1px solid #3A5F0B;
+}
+/*mis*/
 
 .footer{
     position: fixed;
     bottom: 0;
     width: 100%;
     padding: 15px 0px;
-    border:1px solid #e0e0e0;
+    border-top:1px solid #3A5F0B;
     text-align: center;
+    background-color: #005502;
+    color: #fff;
 }
 
 

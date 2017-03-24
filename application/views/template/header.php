@@ -11,7 +11,7 @@
     </head>
     <body>
         <?php if ($title != 'Login') { ?>
-            <nav class="navbar navbar-default">
+            <nav class="navbar navbar-default navbar-override">
                 <div class="container-fluid">
                     <div class="navbar-header">
                         <a href="<?php echo base_url() . 'dashboard/index' ?>" class="navbar-brand">
@@ -20,13 +20,13 @@
                         </a>
                     </div>
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav">
+                        <ul class="nav navbar-nav" id="menu_item">
                             <li><a href="<?php echo base_url() . 'dashboard/index' ?>"><i class="fa fa-tachometer" style="font-size: 16px;"></i> Dashboard</a></li>
                             <li><a href="#"><i class="fa fa-users" style="font-size: 16px;"></i> Users</a></li>
                             <li><a href="#"><i class="fa fa-universal-access" style="font-size: 16px;"></i> Role</a></li>
                             <li><a href="#"><i class="fa fa-newspaper-o" style="font-size: 16px;"></i> UserRole</a></li>
                         </ul>
-                        <ul class="nav navbar-nav navbar-right">
+                        <ul class="nav navbar-nav navbar-right" id="dropdown_menu">
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"
                                    role="button" aria-haspopup="true" aria-expanded="false">
@@ -34,7 +34,7 @@
                                     <?php echo ucfirst($_SESSION['username']); ?>
                                     <span class="caret"></span>
                                 </a>
-                                <ul class="dropdown-menu">
+                                <ul class="dropdown-menu" id="dropdown_menu_item">
                                     <li><a href="<?php echo base_url() . 'logout' ?>"><i class="fa fa-sign-out" style="font-size: 16px;"></i> Logout</a></li>
                                 </ul>
                             </li>

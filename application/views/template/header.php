@@ -9,8 +9,16 @@
         <script src="<?php echo base_url(); ?>js/bootstrap.min.js" type="text/javascript"></script>
         <script src="<?php echo base_url(); ?>js/script.js" type="text/javascript"></script>
     </head>
-    <body>
-        <?php if ($title != 'Login') { ?>
+    <body <?php
+    if (isset($flashData)) {
+        if ($flashData[0] == 'ok') {
+            echo 'onload="show_flash(\'' . $flashData[1] . '\');"';
+        } elseif ($flashData[0] == 'error') {
+            echo 'onload="show_flash(' . $flashData[1] . ');"';
+        }
+    }
+    ?>>
+            <?php if ($title != 'Login') { ?>
             <nav class="navbar navbar-default navbar-override">
                 <div class="container-fluid">
                     <div class="navbar-header">
@@ -62,3 +70,4 @@
                 </div>
             </div>
         </div>
+        <div class="growlBox" id="growl-box"></div>

@@ -13,7 +13,23 @@ class category extends CI_Controller {
         $this->session_check();
     }
 
+    public function getFlashdata() {
+        $error = $this->session->flashdata('error');
+        $success = $this->session->flashdata('success');
+        if (!empty($error)) { // pulls data before redirect and checks for login error
+            $status = array('error', $error);
+            return $status;
+        }
+        if (!empty($success)) {
+            $status = array('ok', $success);
+            return $status;
+        }
+    }
+
     public function index($page) {
+        if ($this->getFlashdata()) {
+            $data['flashData'] = $this->getFlashdata();
+        }
         $data['data_per_page'] = 5;
         $start_point = ($page - 1) * $data['data_per_page'];
         $data['total_record'] = count($this->fetch->getAllFromTable('category', '', ''));
@@ -42,9 +58,11 @@ class category extends CI_Controller {
         $table_name = 'category';
         $this->load->model('insert');
         if ($this->insert->insertIntoTable($cols_data, $table_name)) {
+            $this->session->set_flashdata('success', $category . ' was saved successfully!');
             redirect('category/1', 'refresh');
         } else {
             //show unable to insert error with flash data.
+            $this->session->set_flashdata('error', 'Unable to save ' . $category);
             $this->create();
         }
     }
@@ -64,19 +82,27 @@ class category extends CI_Controller {
         $this->load->model('update');
         $cols = array('name' => $category_name);
         if ($this->update->updateTableRow($cols, 'category', 'id', $id)) {
+            $this->session->set_flashdata('success', $category_name . ' was saved successfully!');
             redirect('category/1', 'refresh');
         } else {
             //show unable to insert error with flash data.
+            $this->session->set_flashdata('error', 'Unable to save ' . $category_name);
             $this->create();
         }
     }
 
     public function delete($id) {
         $this->load->model('delete');
+        $query = $this->fetch->getSingleRecord('category', $id); // just fetching single record for flash data purpose
+        foreach ($query as $record) {
+            $category_name = $record->name;
+        } //end of fetch code
         if ($this->delete->deleteRecord($id, 'category')) {
+            $this->session->set_flashdata('success', $category_name . ' was deleted successfully!');
             redirect('category/1', 'refresh');
         } else {
             //show unable to insert error with flash data.
+            $this->session->set_flashdata('error', 'Unable to delete ' . $category_name);
             $this->create();
         }
     }

@@ -13,7 +13,7 @@
                 </tr>
                 <tr>
                     <td>Password:</td>
-                    <td><input type="text" name="password" class="form-control login_text_box"/></td>
+                    <td><input type="password" name="password" class="form-control login_text_box"/></td>
                 </tr>
                 <tr>
                     <td>&nbsp;</td>

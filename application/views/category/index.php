@@ -1,3 +1,6 @@
+<?php
+$for_delete = explode("/", $_SERVER["REQUEST_URI"]);
+?>
 <div class="data_table_view_wrap">
     <h1>Category</h1>
     <div class="toolbar">
@@ -30,8 +33,8 @@
                 <tr>
                     <td><?php echo $serial_num + $i++; ?></td>
                     <td><?php echo $category->name; ?></td>
-                    <td><a href="<?php echo base_url() . "category/edit/" . $category->id ?>"><i class="fa fa-pencil-square-o" style="font-size: 18px;"></i></a></td>
-                    <td><a href="javascript:void(0);" onclick="javascript:showConfirmBox('Are you sure you want to delete this?', '<?php echo base_url() . "category/delete/" . $category->id ?>');"><i class="fa fa-times" style="font-size: 18px;"></i></a></td>
+                    <td><a href="<?php echo base_url() . "category/edit/" . $category->id . "/" . $for_delete[3] ?>"><i class="fa fa-pencil-square-o" style="font-size: 18px;"></i></a></td>
+                    <td><a href="javascript:void(0);" onclick="javascript:showConfirmBox('Are you sure you want to delete this?', '<?php echo base_url() . "category/delete/" . $category->id . "/" . $for_delete[3] ?>');"><i class="fa fa-times" style="font-size: 18px;"></i></a></td>
                 </tr>
             <?php } ?>
         </table>

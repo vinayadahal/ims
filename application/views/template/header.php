@@ -61,7 +61,7 @@
                     Are you sure you want to do this?
                 </div>
                 <div class="confirmBtnArea">
-                    <a href="bla" id="url">
+                    <a href="#" id="url">
                         <button type="button" class="btn btn-default btn-back">Yes</button>
                     </a>
                     <a href="javascript:void(0);" onclick="closeConfirmBox();">

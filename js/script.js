@@ -23,13 +23,12 @@ function show_flash(msg, code) {
             'background-color': 'rgba(250, 0, 0, 0.7)',
             'color': '#fff'
         });
-    }else{
+    } else {
         $("#growl-box").css({
             'background-color': 'rgba(230, 230, 0, 0.7)',
             'color': '#555'
         });
     }
-
     $("#growl-box").fadeIn('slow');
     setInterval(function () {
         $("#growl-box").fadeOut('slow');

@@ -12,6 +12,21 @@ class fetch extends CI_Model {
         return $query->result();
     }
 
+    function getCountFromTable($table, $id, $value) {
+        $this->db->select('*');
+        $this->db->from($table);
+        $this->db->where($id . '<', $value);
+        $query = $this->db->get();
+        return count($query->result());
+    }
+
+    function getTotalCount($table) {
+        $this->db->select("*");
+        $this->db->from($table);
+        $query = $this->db->get();
+        return count($query->result());
+    }
+
     function getUserLogin($username, $password) {
         $this->db->select('id, first_name, gender, username, password, role');
         $this->db->from('user');

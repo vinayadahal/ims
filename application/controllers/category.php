@@ -92,7 +92,7 @@ class category extends CI_Controller {
         } else {
             //show unable to insert error with flash data.
             $this->session->set_flashdata('error', 'Unable to save ' . $category_name);
-            $this->create();
+            redirect('category/1', 'refresh');
         }
     }
 
@@ -107,8 +107,6 @@ class category extends CI_Controller {
             $data_per_page = 5;
             $total_record = $this->fetch->getTotalCount("category");
             $curr_page = ceil($total_record / $data_per_page);
-            echo "total Rec= " . $total_record;
-            echo "<br>curr_page= " . $curr_page . "<br>";
             if ($curr_page < $page_num) {
                 $page_num = $page_num - 1;
             }
@@ -116,7 +114,7 @@ class category extends CI_Controller {
         } else {
             //show unable to insert error with flash data.
             $this->session->set_flashdata('error', 'Unable to delete ' . $category_name);
-            $this->create();
+            redirect('category/1', 'refresh');
         }
     }
 

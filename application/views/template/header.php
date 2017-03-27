@@ -30,6 +30,8 @@
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav" id="menu_item">
                             <li><a href="<?php echo base_url() . 'dashboard/index' ?>"><i class="fa fa-tachometer" style="font-size: 16px;"></i> Dashboard</a></li>
+                            <li><a href="<?php echo base_url() . 'category/1' ?>"><i class="fa fa-cube" style="font-size: 16px;"></i> Category</a></li>
+                            <li><a href="<?php echo base_url() . 'product/1' ?>"><i class="fa fa-shopping-basket" style="font-size: 16px;"></i> Product</a></li>
                             <li><a href="#"><i class="fa fa-users" style="font-size: 16px;"></i> Users</a></li>
                             <li><a href="#"><i class="fa fa-universal-access" style="font-size: 16px;"></i> Role</a></li>
                             <li><a href="#"><i class="fa fa-newspaper-o" style="font-size: 16px;"></i> UserRole</a></li>

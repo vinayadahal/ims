@@ -114,6 +114,7 @@ body{
     left: 0;
     right: 0;
     z-index: 1;
+    display: none;
 }
 
 .popupConfirmBox{
@@ -125,6 +126,7 @@ body{
     width:300px;
     height:110px;
     background-color: #fff;
+    display: none;
 }
 
 .popupCofirmBoxHeader{

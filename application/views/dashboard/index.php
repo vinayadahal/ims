@@ -6,7 +6,7 @@
         </a>
     </div>
     <div class="panel panel-default icons">
-        <a href="#">
+        <a href="<?php echo base_url() . 'product/1' ?>">
             <i class="fa fa-shopping-basket" style="font-size:100px;"></i>
             <span class="icon_text"> Products</span>
         </a>

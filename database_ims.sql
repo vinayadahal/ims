@@ -20,11 +20,29 @@ CREATE TABLE `category` (
   `id` smallint(6) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=latin1;
 
 /*Data for the table `category` */
 
-insert  into `category`(`id`,`name`) values (19,'Electronics'),(20,'KitchenWare');
+insert  into `category`(`id`,`name`) values (19,'Electronics'),(20,'KitchenWare'),(21,'Cosmetics'),(22,'Grocery'),(23,'Garments'),(24,'FoodItems'),(26,'add'),(34,'asdas'),(35,'qwweqweq'),(41,'adasd');
+
+/*Table structure for table `product` */
+
+DROP TABLE IF EXISTS `product`;
+
+CREATE TABLE `product` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `category_id` smallint(6) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `purchasePrice` decimal(38,0) DEFAULT NULL,
+  `sellingPrice` decimal(38,0) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+
+/*Data for the table `product` */
+
+insert  into `product`(`id`,`category_id`,`description`,`name`,`purchasePrice`,`sellingPrice`) values (1,20,'electrical devices','Rice Cooker','2000','3000'),(4,22,'this for testing test','Testing','1000','2000'),(7,19,'qweqw','dasdsa','14','15'),(8,26,'gfhfghf','werwe','15','19'),(9,19,'bla bla','bla1','180','190'),(10,19,'movie','la la land','350','400');
 
 /*Table structure for table `user` */
 

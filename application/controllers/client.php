@@ -42,9 +42,9 @@ class client extends CI_Controller {
 
     public function search() {
         $keyword = $this->input->post('keyword');
-        $col = array('name');
-        $tablename = 'category';
-        $data['category_list'] = $this->fetch->search($keyword, $col, $tablename);
+        $col = array('name', 'email','phone','mobile','address');
+        $tablename = 'client';
+        $data['client_list'] = $this->fetch->search($keyword, $col, $tablename);
         $this->load_view($data, 'search');
     }
 

@@ -45,7 +45,6 @@
                     <td style="vertical-align:middle">Selling Price: </td>
                     <td><input type="text" name="selling_price" class="form-control form_input" value="<?php echo $sellingPrice; ?>" /></td>
                 </tr>
-                </tr>
                 <tr>
                     <td colspan="2"><input type="submit" value="Save" class="btn btn-default btn-back"></td>
                 </tr>

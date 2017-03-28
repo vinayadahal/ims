@@ -20,11 +20,29 @@ CREATE TABLE `category` (
   `id` smallint(6) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=latin1;
 
 /*Data for the table `category` */
 
 insert  into `category`(`id`,`name`) values (19,'Electronics'),(20,'KitchenWare'),(21,'Cosmetics'),(22,'Grocery'),(23,'Garments'),(24,'FoodItems'),(26,'add'),(34,'asdas'),(35,'qwweqweq'),(41,'adasd');
+
+/*Table structure for table `client` */
+
+DROP TABLE IF EXISTS `client`;
+
+CREATE TABLE `client` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `address` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `mobile` int(11) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `phone` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+/*Data for the table `client` */
+
+insert  into `client`(`id`,`address`,`email`,`mobile`,`name`,`phone`) values (1,'dasdas','asdasda',1212312,'qwert',12345),(2,'fdgdfg','werteq',12345,'tyuityu',45454),(3,'Jorpati','vinayadahal@gmail.com',456,'Vinaya dahal',123);
 
 /*Table structure for table `product` */
 

@@ -16,5 +16,6 @@ $route['category/create'] = 'category/create';
 $route['category/edit/(:num)'] = 'category/edit/$1';
 $route['category/delete/(:num)/(:any)'] = 'category/delete/$1/$2';
 $route['product/(:num)'] = 'product/index/$1';
+$route['client/(:num)'] = 'client/index/$1';
 $route['logout'] = 'login/logout';
 

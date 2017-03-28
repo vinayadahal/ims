@@ -12,7 +12,7 @@
         </a>
     </div>
     <div class="panel panel-default icons">
-        <a href="#">
+        <a href="<?php echo base_url() . 'client/1' ?>">
             <i class="fa fa-user-secret" style="font-size:100px;"></i>
             <span class="icon_text"> Clients</span>
         </a>

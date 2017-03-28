@@ -32,6 +32,7 @@
                             <li><a href="<?php echo base_url() . 'dashboard/index' ?>"><i class="fa fa-tachometer" style="font-size: 16px;"></i> Dashboard</a></li>
                             <li><a href="<?php echo base_url() . 'category/1' ?>"><i class="fa fa-cube" style="font-size: 16px;"></i> Category</a></li>
                             <li><a href="<?php echo base_url() . 'product/1' ?>"><i class="fa fa-shopping-basket" style="font-size: 16px;"></i> Product</a></li>
+                            <li><a href="<?php echo base_url() . 'client/1' ?>"><i class="fa fa-user-secret" style="font-size: 16px;"></i> Client</a></li>
                             <li><a href="#"><i class="fa fa-users" style="font-size: 16px;"></i> Users</a></li>
                             <li><a href="#"><i class="fa fa-universal-access" style="font-size: 16px;"></i> Role</a></li>
                             <li><a href="#"><i class="fa fa-newspaper-o" style="font-size: 16px;"></i> UserRole</a></li>

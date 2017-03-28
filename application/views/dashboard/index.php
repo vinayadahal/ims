@@ -17,4 +17,10 @@
             <span class="icon_text"> Clients</span>
         </a>
     </div>
+    <div class="panel panel-default icons">
+        <a href="<?php echo base_url() ?>">
+            <i class="fa fa-bar-chart" style="font-size:100px;"></i>
+            <span class="icon_text"> Sale</span>
+        </a>
+    </div>
 </div>

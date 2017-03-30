@@ -2,6 +2,7 @@ $(document).ready(function () {
     $("#popupBack").hide();
     $("#popupConfirmBox").hide();
     $("#growl-box").hide();
+    autoAdjustFooter();
 });
 
 function showConfirmBox(message, url) {
@@ -33,4 +34,33 @@ function show_flash(msg, code) {
     setInterval(function () {
         $("#growl-box").fadeOut('slow');
     }, 5000);
+}
+
+function autoAdjustFooter() {
+    var height = $(".data_table_view_wrap").height();
+    if (height > 500) {
+        $(".data_table_view_wrap").css({
+            'margin-bottom': '10px'
+        });
+        $(".footer").css({
+            'position': 'relative',
+            'bottom': 'none',
+        });
+    }
+}
+
+function validatePassword() {
+    var password = $("#password").val();
+    var confirm_password = $("#confirm_password").val();
+    if (password === confirm_password) {
+        if (password !== '' && confirm_password !== '') {
+            return true;
+        } else {
+            alert("Password is empty");
+        }
+        return false;
+    } else {
+        alert("Password mismatch");
+        return false;
+    }
 }

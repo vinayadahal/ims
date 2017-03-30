@@ -12,9 +12,9 @@
     <body <?php
     if (isset($flashData)) {
         if ($flashData[0] == 'ok') {
-            echo 'onload="show_flash(\'' . $flashData[1] . '\');"';
+            echo 'onload="show_flash(\'' . $flashData[1] . '\',\'' . $flashData[0] . '\');"';
         } elseif ($flashData[0] == 'error') {
-            echo 'onload="show_flash(' . $flashData[1] . ');"';
+            echo 'onload="show_flash(\'' . $flashData[1] . '\',\'' . $flashData[0] . '\');"';
         }
     }
     ?>>
@@ -22,7 +22,8 @@
             <nav class="navbar navbar-default navbar-override">
                 <div class="container-fluid">
                     <div class="navbar-header">
-                        <a href="<?php echo base_url() . 'dashboard/index' ?>" class="navbar-brand">
+                        <a href="<?php echo base_url() . 'dashboard/index'
+                ?>" class="navbar-brand">
                             <i class="fa fa-cubes"
                                style="font-size: 23px; float: left; margin-right: 10px;"></i>Inventory Management
                         </a>
@@ -46,6 +47,7 @@
                                     <span class="caret"></span>
                                 </a>
                                 <ul class="dropdown-menu" id="dropdown_menu_item">
+                                    <li><a href="<?php echo base_url() . 'logout' ?>"><i class="fa fa-cog" style="font-size: 16px;"></i> Settings</a></li>
                                     <li><a href="<?php echo base_url() . 'logout' ?>"><i class="fa fa-sign-out" style="font-size: 16px;"></i> Logout</a></li>
                                 </ul>
                             </li>

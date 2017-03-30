@@ -28,11 +28,10 @@ class fetch extends CI_Model {
     }
 
     function getUserLogin($username, $password) {
-        $this->db->select('id, first_name, gender, username, password, role');
+        $this->db->select('id, first_name, gender, username, password');
         $this->db->from('user');
         $this->db->where('username', $username);
-//        $this->db->where('password', sha1($password));
-        $this->db->where('password', $password);
+        $this->db->where('password', md5($password));
         $this->db->limit(1);
         $query = $this->db->get();
         if ($query->num_rows() == 1) {

@@ -23,4 +23,10 @@
             <span class="icon_text"> Sale</span>
         </a>
     </div>
+    <div class="panel panel-default icons">
+        <a href="<?php echo base_url() .'usermanagement/1'?>">
+            <i class="fa fa-user-circle-o" style="font-size:100px;"></i>
+            <span class="icon_text"> User Management</span>
+        </a>
+    </div>
 </div>

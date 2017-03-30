@@ -12,8 +12,29 @@ class login extends CI_Controller {
         $this->load->library('session'); // starts session
     }
 
+    public function getFlashdata() {
+        $error = $this->session->flashdata('error');
+        $success = $this->session->flashdata('success');
+        if (!empty($error)) { // pulls data before redirect and checks for login error
+            $status = array('error', $error);
+            return $status;
+        }
+        if (!empty($success)) {
+            $status = array('ok', $success);
+            return $status;
+        }
+        return false;
+    }
+
     public function index() {
-        $this->load_view();
+        if ($this->getFlashdata()) {
+            $data['flashData'] = $this->getFlashdata();
+        }
+        if (isset($data)) {
+            $this->load_view($data);
+        } else {
+            $this->load_view();
+        }
     }
 
     public function checkLogin() {
@@ -39,7 +60,7 @@ class login extends CI_Controller {
         }
     }
 
-    public function load_view() {
+    public function load_view($data = null) {
         $data['title'] = ucfirst('login');
         $this->load->view('template/header', $data);
         $this->load->view('login/index', $data);

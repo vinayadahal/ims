@@ -11,7 +11,7 @@ $for_delete = explode("/", $_SERVER["REQUEST_URI"]);
             <button type="button" class="btn btn-default btn-back" style="margin-left: 20px;">Create</button>
         </a>
         <div class="toolbar_search">
-            <form method="post" action="<?php echo base_url() . 'category/search' ?>">
+            <form method="get" action="<?php echo base_url() . 'category/search' ?>">
                 <input type="text" class="form-control toolbar_input" name="keyword" placeholder="Search..."/>
                 <button type="submit" class="btn btn-default toolbar_search_btn">
                     <i class="fa fa-search"></i>

@@ -42,11 +42,16 @@ class usermanagement extends CI_Controller {
     }
 
     public function search() {
-        $keyword = $this->input->post('keyword');
-        $col = array('name');
-        $tablename = 'user';
-        $data['user_list'] = $this->fetch->search($keyword, $col, $tablename);
-        $this->load_view($data, 'search');
+        $keyword = $this->input->get('keyword');
+        if (empty($keyword)) {
+            redirect('usermanagement/1', 'refresh');
+        } else {
+            $col = array('first_name');
+            $tablename = 'user';
+            $data['role_list'] = $this->fetch->getAllFromTable('role', '', '');
+            $data['user_list'] = $this->fetch->search($keyword, $col, $tablename);
+            $this->load_view($data, 'search');
+        }
     }
 
     public function create() {
@@ -79,10 +84,19 @@ class usermanagement extends CI_Controller {
     }
 
     public function edit($record_id, $page_num = null) {
-        $query = $this->fetch->getSingleRecord('category', $record_id);
-        foreach ($query as $record) {
-            $data['category_name'] = $record->name;
+        if ($this->getFlashdata()) {
+            $data['flashData'] = $this->getFlashdata();
         }
+        $query = $this->fetch->getSingleRecord('user', $record_id);
+        foreach ($query as $record) {
+            $data['first_name'] = $record->first_name;
+            $data['last_name'] = $record->last_name;
+            $data['email'] = $record->email;
+            $data['username'] = $record->username;
+            $data['gender'] = $record->gender;
+            $data['role_id'] = $record->role_id;
+        }
+        $data['role_list'] = $this->fetch->getAllFromTable('role', '', '');
         $data['page_num'] = $page_num;
         $data['rec_id'] = $record_id;
         $this->load_view($data, 'edit');
@@ -90,39 +104,66 @@ class usermanagement extends CI_Controller {
 
     public function update() {
         $id = $this->input->post('id');
-        $category_name = $this->input->post('category');
         $page_num = $this->input->post('page_num');
+        $first_name = $this->input->post('first_name');
+        $last_name = $this->input->post('last_name');
+        $email = $this->input->post('email');
+        $gender = $this->input->post('gender');
+        $username = $this->input->post('username');
+        $role = $this->input->post('role_id');
         $this->load->model('update');
-        $cols = array('name' => $category_name);
-        if ($this->update->updateTableRow($cols, 'category', 'id', $id)) {
-            $this->session->set_flashdata('success', $category_name . ' was saved successfully!');
-            redirect('category/' . $page_num, 'refresh');
+        $cols = array('first_name' => $first_name, 'last_name' => $last_name, 'email' => $email, 'gender' => $gender, 'username' => $username, 'role_id' => $role);
+        if ($this->update->updateTableRow($cols, 'user', 'id', $id)) {
+            $this->session->set_flashdata('success', $first_name . ' was saved successfully!');
+            redirect('usermanagement/' . $page_num, 'refresh');
         } else {
             //show unable to insert error with flash data.
-            $this->session->set_flashdata('error', 'Unable to save ' . $category_name);
-            redirect('category/1', 'refresh');
+            $this->session->set_flashdata('error', 'Unable to save ' . $first_name);
+            redirect('usermanagement/1', 'refresh');
         }
     }
 
     public function delete($id, $page_num = null) {
         $this->load->model('delete');
-        $query = $this->fetch->getSingleRecord('category', $id); // just fetching single record for flash data purpose
+        $query = $this->fetch->getSingleRecord('user', $id); // just fetching single record for flash data purpose
         foreach ($query as $record) {
-            $category_name = $record->name;
+            $first_name = $record->first_name;
         } //end of fetch code
-        if ($this->delete->deleteRecord($id, 'category')) {
-            $this->session->set_flashdata('success', $category_name . ' was deleted successfully!');
+        if ($this->delete->deleteRecord($id, 'user')) {
+            $this->session->set_flashdata('success', $first_name . ' was deleted successfully!');
             $data_per_page = 5;
-            $total_record = $this->fetch->getTotalCount("category");
+            $total_record = $this->fetch->getTotalCount("user");
             $curr_page = ceil($total_record / $data_per_page);
             if ($curr_page < $page_num) {
                 $page_num = $page_num - 1;
             }
-            redirect('category/' . $page_num, 'refresh');
+            redirect('usermanagement/' . $page_num, 'refresh');
         } else {
             //show unable to insert error with flash data.
-            $this->session->set_flashdata('error', 'Unable to delete ' . $category_name);
-            redirect('category/1', 'refresh');
+            $this->session->set_flashdata('error', 'Unable to delete ' . $first_name);
+            redirect('usermanagement/1', 'refresh');
+        }
+    }
+
+    public function changePassword($rec_id, $page_num) {
+        $data['rec_id'] = $rec_id;
+        $data['page_num'] = $page_num;
+        $this->load_view($data, 'password');
+    }
+
+    public function update_password() {
+        $user_id = $this->input->post('id');
+        $page_num = $this->input->post('page_num');
+        $pass = $this->input->post('password');
+        $this->load->model('update');
+        $cols = array('password' => md5($pass));
+        if ($this->update->updateTableRow($cols, 'user', 'id', $user_id)) {
+            $this->session->set_flashdata('success', 'Password was saved successfully!');
+            redirect('usermanagement/edit/' . $user_id . '/' . $page_num, 'refresh');
+        } else {
+            //show unable to insert error with flash data.
+            $this->session->set_flashdata('error', 'Unable to save password');
+            redirect('usermanagement/edit/' . $user_id . '/' . $page_num, 'refresh');
         }
     }
 

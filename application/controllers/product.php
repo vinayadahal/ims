@@ -42,11 +42,15 @@ class product extends CI_Controller {
     }
 
     public function search() {
-        $keyword = $this->input->post('keyword');
-        $col = array('name', 'description');
-        $tablename = 'product';
-        $data['product_list'] = $this->fetch->search($keyword, $col, $tablename);
-        $this->load_view($data, 'search');
+        $keyword = $this->input->get('keyword');
+        if (empty($keyword)) {
+            redirect('product/1', 'refresh');
+        } else {
+            $col = array('name', 'description');
+            $tablename = 'product';
+            $data['product_list'] = $this->fetch->search($keyword, $col, $tablename);
+            $this->load_view($data, 'search');
+        }
     }
 
     public function create() {

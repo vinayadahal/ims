@@ -36,7 +36,7 @@ $for_delete = explode("/", $_SERVER["REQUEST_URI"]);
             foreach ($user_list as $user) {
                 ?>
                 <tr>
-                    <td><?php echo $serial_num + $i++; ?></td>
+                    <td><?php echo $i++; ?></td>
                     <td><?php echo $user->first_name; ?></td>
                     <td><?php echo $user->last_name; ?></td>
                     <td><?php echo $user->email; ?></td>
@@ -56,13 +56,5 @@ $for_delete = explode("/", $_SERVER["REQUEST_URI"]);
                 </tr>
             <?php } ?>
         </table>
-        <?php $loop_count = ceil($total_record / $data_per_page); ?>
-        <ul class="pagination">
-            <li><a href="<?php echo base_url() . 'usermanagement/' . 1 ?>" title="First" ><<</a></li>
-            <?php for ($i = 1; $i <= $loop_count; $i++) { ?>
-                <li><a href="<?php echo base_url() . 'usermanagement/' . $i ?>"><?php echo $i; ?></a></li>
-            <?php } ?>
-            <li><a href="<?php echo base_url() . 'usermanagement/' . $loop_count ?>" title="Last" >>></a></li>
-        </ul>
     </div>
 </div>

@@ -77,6 +77,14 @@ body{
     color: #fff;
 }
 
+.navbar-brand a{
+    color:#fff;
+}
+
+.navbar-header .navbar-brand:hover{
+    color:#fff;
+}
+
 #menu_item li a{
     color: #fff;
 }
